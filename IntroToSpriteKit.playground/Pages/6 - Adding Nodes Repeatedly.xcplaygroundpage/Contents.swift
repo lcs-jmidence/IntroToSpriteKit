@@ -15,7 +15,7 @@ import SpriteKit            // Provides 2D graphics classes
 // Define the animation size, scene, and scene color
 let frame = CGRect(x: 0, y: 0, width: 400, height: 500)
 var scene = SKScene(size: frame.size)
-scene.backgroundColor = .gray
+scene.backgroundColor = .red
 
 // Define, configure, and present the scene
 let view = SKView(frame: frame)
@@ -57,8 +57,8 @@ func spawnSand() {
     // Vertical position just above top of the scene
     let y = scene.size.height - sand.size.height
 
-    // Horizontal position is random
-    let x = CGFloat.random(in: 0.0...scene.size.width)
+    // Horizontal position so it's in the hourglass
+    let x = CGFloat.random(in: 100.0...scene.size.width - 100.0)
 
     // Set the grain of sand's position
     sand.position = CGPoint(x: x, y: y)
@@ -90,12 +90,12 @@ func spawnSand() {
  
  */
 
-//// Add 100 sand particles, one each second, for the next 50 seconds
-//let actionSpawnSandParticle = SKAction.run(spawnSand)
-//let actionWait = SKAction.wait(forDuration: 0.5)
-//let sequenceSpawnThenWait = SKAction.sequence([actionSpawnSandParticle, actionWait])
-//let actionRepeatlyAddSand = SKAction.repeat(sequenceSpawnThenWait, count: 100)
-//scene.run(actionRepeatlyAddSand)
+// Add 100 sand particles, one each second, for the next 50 seconds
+let actionSpawnSandParticle = SKAction.run(spawnSand)
+let actionWait = SKAction.wait(forDuration: 0.5)
+let sequenceSpawnThenWait = SKAction.sequence([actionSpawnSandParticle, actionWait])
+let actionRepeatlyAddSand = SKAction.repeat(sequenceSpawnThenWait, count: 100)
+scene.run(actionRepeatlyAddSand)
 
 /*:
  ### Exercises
