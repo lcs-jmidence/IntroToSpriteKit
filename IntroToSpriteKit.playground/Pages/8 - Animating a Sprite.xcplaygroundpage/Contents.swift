@@ -147,7 +147,43 @@ hero.run(actionWalkAndMoveFiveTimes)
  */
 
 // Exercise: Write your code below
+// Add the rocket
+let rocket = SKSpriteNode(imageNamed: "rocket")
+rocket.position = CGPoint(x: 350, y: 30 )
+rocket.physicsBody = SKPhysicsBody(texture: rocket.texture!,
+                                 alphaThreshold: 0.5,
+                                 size: rocket.size)
+scene.addChild(rocket)
 
+//Create an array for the rocket images
+var blastOffTextures: [SKTexture] = []
+
+//Adding images needed in the array
+blastOffTextures.append(SKTexture(imageNamed: "rocket_0"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_1"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_2"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_3"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_4"))
+blastOffTextures.append(SKTexture(imageNamed: "rocket_5"))
+
+// Create an action to animate blast off motion using the rocket sprites array (walkingTextures)
+let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+
+// Create an action that moves the hero forward a "step" where a step is 10 pixels
+// NOTE: The time interval for moving forward matches the time per frame of the animation
+let actionMoveForward = SKAction.moveBy(x: 10, y: 0, duration: 0.2)
+
+// Repeat the move forward action twice
+let actionMoveForwardTwice = SKAction.repeat(actionMoveForward, count: 2)
+
+// Now, combine the walking animation with the sprite moving forward
+let actionWalkAndMove = SKAction.group([actionWalkingAnimation, actionMoveForwardTwice])
+
+// Repeat the "walk and move" action five times
+let actionWalkAndMoveFiveTimes = SKAction.repeat(actionWalkAndMove, count: 5)
+
+// Make the hero walk and move forward five times
+hero.run(actionWalkAndMoveFiveTimes)
 /*:
  
  [Previous: Working With Text](@previous) | Page 8 | [Next: Particle Effects](@next)
