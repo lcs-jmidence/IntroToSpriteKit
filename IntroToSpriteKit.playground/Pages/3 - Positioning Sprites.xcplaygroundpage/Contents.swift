@@ -60,7 +60,7 @@ circle.position = CGPoint(x: 0, y: 0)
  
  */
 
-//scene.addChild(circle)
+scene.addChild(circle)
 
 /*:
  
@@ -75,25 +75,25 @@ Once you have selected the block of code, press the **Command** and / keys at th
 
  */
 
-//// Add another circle to the right of the origin
-//let circle2 = SKSpriteNode(imageNamed: "circle")
-//circle2.position = CGPoint(x: 100, y: 0)
-//scene.addChild(circle2)
+// Add another circle to the right of the origin
+let circle2 = SKSpriteNode(imageNamed: "circle")
+circle2.position = CGPoint(x: 100, y: 0)
+scene.addChild(circle2)
 
-//// Add another circle further above the origin
-//let circle3 = SKSpriteNode(imageNamed: "circle")
-//circle3.position = CGPoint(x: 0, y: 200)
-//scene.addChild(circle3)
+// Add another circle further above the origin
+let circle3 = SKSpriteNode(imageNamed: "circle")
+circle3.position = CGPoint(x: 0, y: 200)
+scene.addChild(circle3)
 
-//// Add a circle at the bottom right corner of the scene
-//let circle4 = SKSpriteNode(imageNamed: "circle")
-//circle4.position = CGPoint(x: scene.size.width, y: 0)
-//scene.addChild(circle4)
+// Add a circle at the bottom right corner of the scene
+let circle4 = SKSpriteNode(imageNamed: "circle")
+circle4.position = CGPoint(x: scene.size.width, y: 0)
+scene.addChild(circle4)
 
-//// Add a star at the right side of the scene, halfway up
-//let star = SKSpriteNode(imageNamed: "star")
-//star.position = CGPoint(x: scene.size.width, y: scene.size.height / 2)
-//scene.addChild(star)
+// Add a star at the right side of the scene, halfway up
+let star = SKSpriteNode(imageNamed: "star")
+star.position = CGPoint(x: scene.size.width, y: scene.size.height / 2)
+scene.addChild(star)
 
 /*:
  - Callout(Reflect):
@@ -116,13 +116,19 @@ Once you have selected the block of code, press the **Command** and / keys at th
  */
 
 // Exercise 1: Write your code below.
-
+let star1 = SKSpriteNode(imageNamed: "star")
+star1.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
+scene.addChild(star1)
 
 // Exercise 2: Write your code below.
-
+let circle5 = SKSpriteNode(imageNamed: "circle")
+circle5.position = CGPoint(x: scene.size.width, y: scene.size.height)
+scene.addChild(circle5)
 
 // Exercise 3: Write your code below.
-
+let square = SKSpriteNode(imageNamed: "square")
+square.position = CGPoint(x: scene.size.width / 2, y: scene.size.height)
+scene.addChild(square)
 
 /*:
 
