@@ -167,7 +167,7 @@ blastOffTextures.append(SKTexture(imageNamed: "rocket_4"))
 blastOffTextures.append(SKTexture(imageNamed: "rocket_5"))
 
 // Create an action to animate blast off motion using the rocket sprites array (walkingTextures)
-let actionWalkingAnimation = SKAction.animate(with: walkingTextures, timePerFrame: 0.2, resize: true, restore: true)
+let blastOffAnimation = SKAction.animate(with: blastOffTextures, timePerFrame: 0.2, resize: true, restore: true)
 
 // Create an action that moves the hero forward a "step" where a step is 10 pixels
 // NOTE: The time interval for moving forward matches the time per frame of the animation

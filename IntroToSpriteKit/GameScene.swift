@@ -19,25 +19,29 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         // Set the background colour
-        self.backgroundColor = .black
-        
-        // Get a reference to the mp3 file in the app bundle
-        let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
-        
-        // Convert the file path string to a URL (Uniform Resource Locator)
-        let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
-        
-        // Attempt to open and play the file at the given URL
-        do {
-            backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
-            backgroundMusic?.play()
-        } catch {
-            // Do nothing if the sound file could not be played
-        }
+        //self.backgroundColor = .black
+
+//         //Example to play background music
+//        // Get a reference to the mp3 file in the app bundle
+//        let backgroundMusicFilePath = Bundle.main.path(forResource: "sleigh-bells-excerpt.mp3", ofType: nil)!
+//
+//        // Convert the file path string to a URL (Uniform Resource Locator)
+//        let backgroundMusicFileURL = URL(fileURLWithPath: backgroundMusicFilePath)
+//
+//        // Attempt to open and play the file at the given URL
+//        do {
+//            backgroundMusic = try AVAudioPlayer(contentsOf: backgroundMusicFileURL)
+//            backgroundMusic?.play()
+//        } catch {
+//            // Do nothing if the sound file could not be played
+//        }
+        let winterBackground = SKSpriteNode(imageNamed: "winterBackground")
+        winterBackground.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        self.addChild(winterBackground)
 
     }
     
-    // This runs before each frame is rendered
+    // This runs before each frame is rendered 
     // Avoid putting computationally intense code in this function to maintain high performance
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
