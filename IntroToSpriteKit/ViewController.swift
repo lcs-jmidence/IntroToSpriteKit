@@ -22,11 +22,11 @@ class ViewController: NSViewController {
         // 1. When ready to make screen recording, uncomment line 22 and comment out line 23
         // 2. Choose Product > Clean Build Folder to be sure Xcode picks up the window size change
         //self.skView.frame = NSRect(x: 0, y: 0, width: 1200, height: 900)
-        self.skView.frame = NSRect(x: 0, y: 0, width: 800, height: 600)
+        self.skView.frame = NSRect(x: 0, y: 0, width: 1200, height: 900)
 
         // Create a scene based on the GameScene class
         // Scene size is a bit smaller but will scale up to fill the window
-        let sceneSize = CGSize(width: 800, height: 600)
+        let sceneSize = CGSize(width: 1200, height: 900)
         let scene = GameScene(size: sceneSize)
         scene.scaleMode = .aspectFill
         

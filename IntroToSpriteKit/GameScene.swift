@@ -35,9 +35,25 @@ class GameScene: SKScene {
 //        } catch {
 //            // Do nothing if the sound file could not be played
 //        }
+        
+        // Add background with specific image and center it
         let winterBackground = SKSpriteNode(imageNamed: "winterBackground")
         winterBackground.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
         self.addChild(winterBackground)
+        
+        // Add winter tiles as flooring
+        for v in 0...12 {
+            let winterTile = SKSpriteNode(imageNamed: "winterTile")
+            winterTile.position = CGPoint(x: 100 * v, y: 0)
+            self.addChild(winterTile)
+        }
+        
+        // Add wall of winter tiles
+        for i in 1...5 {
+            let winterTile = SKSpriteNode(imageNamed: "winterTile")
+            winterTile.position = CGPoint(x: 100 * i, y: 100 * i + 25)
+            self.addChild(winterTile)
+        }
 
     }
     
