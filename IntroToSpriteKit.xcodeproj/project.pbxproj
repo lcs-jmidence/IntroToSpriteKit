@@ -14,6 +14,7 @@
 		8127943F239BEC4C000EBED0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8127943E239BEC4C000EBED0 /* ViewController.swift */; };
 		81279441239BEC4D000EBED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81279440239BEC4D000EBED0 /* Assets.xcassets */; };
 		81279444239BEC4D000EBED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81279442239BEC4D000EBED0 /* Main.storyboard */; };
+		D3AFCF3B23A732D0009F9639 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = D3AFCF3A23A732D0009F9639 /* Snow.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		81279445239BEC4D000EBED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81279446239BEC4D000EBED0 /* IntroToSpriteKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntroToSpriteKit.entitlements; sourceTree = "<group>"; };
 		8127944C239BEC6A000EBED0 /* IntroToSpriteKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = IntroToSpriteKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D3AFCF3A23A732D0009F9639 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				81279436239BEC4C000EBED0 /* AppDelegate.swift */,
 				8127943C239BEC4C000EBED0 /* GameScene.swift */,
+				D3AFCF3A23A732D0009F9639 /* Snow.sks */,
 				8127943E239BEC4C000EBED0 /* ViewController.swift */,
 				81279440239BEC4D000EBED0 /* Assets.xcassets */,
 				81279442239BEC4D000EBED0 /* Main.storyboard */,
@@ -134,6 +137,7 @@
 			files = (
 				0EF3302A23A0433100A83858 /* Fire.sks in Resources */,
 				0E0C826523A16E0600DC5990 /* sleigh-bells-excerpt.mp3 in Resources */,
+				D3AFCF3B23A732D0009F9639 /* Snow.sks in Resources */,
 				81279441239BEC4D000EBED0 /* Assets.xcassets in Resources */,
 				81279444239BEC4D000EBED0 /* Main.storyboard in Resources */,
 			);

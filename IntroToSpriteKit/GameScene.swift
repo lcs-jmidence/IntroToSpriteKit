@@ -50,27 +50,57 @@ class GameScene: SKScene {
                                              alphaThreshold: 0.5,
                                              size: winterTile.size)
             winterTile.physicsBody?.isDynamic = false
+            winterTile.zPosition = 1
         }
+        
+        // Create a label saying "Feliz Navidad" behind the wall of crates
+        let title = SKLabelNode(fontNamed: "Herculanum")
+        title.fontSize = 36
+        title.fontColor = NSColor(calibratedRed: 34/255, green: 192/255, blue: 32/255, alpha: 1)
+        title.zPosition = 2
+        title.text = "Feliz"
+        title.position = CGPoint(x: self.size.width - 400, y: self.size.height - 50)
+        self.addChild(title)
+        // Add Navidad
+        let title1 = SKLabelNode(fontNamed: "Herculanum")
+        title1.fontSize = 36
+        title1.fontColor = .red
+        title1.zPosition = 2
+        title1.text = "Navidad"
+        title1.position = CGPoint(x: self.size.width - 100, y: self.size.height - 50)
+        self.addChild(title1)
         
         // Add wall of crates
         for y in 1...5{
             for x in 1...5 {
                 let crate = SKSpriteNode(imageNamed: "crate")
                 crate.position = CGPoint(x: 100 * x + 650, y: 100 * y + 15)
+                crate.zPosition = 3
                 self.addChild(crate)
             }
         }
         
+        // Make it Snow
+        if let snowing = SKEmitterNode(fileNamed: "Snow") {
+
+            // Position the snow (node)
+            snowing.position = CGPoint(x: self.size.width / 2, y: self.size.height)
+            snowing.zPosition = 0
+            self.addChild(snowing) 
+            
+        }
+        
         // Add Snowman sprite
-        let character = SKSpriteNode(imageNamed: "Snowman_01")
+        let Snowman = SKSpriteNode(imageNamed: "Snowman_01")
         // Increase the character's size
         let actionScaleUp = SKAction.scale(by: 4, duration: 0)
-        character.run(actionScaleUp)
+        Snowman.run(actionScaleUp)
         // Position at bottom left
-        character.position = CGPoint(x: 100, y: 145)
+        Snowman.position = CGPoint(x: 100, y: 145)
         // Create physics body
-        character.physicsBody = SKPhysicsBody(texture: character.texture!, alphaThreshold: 0.5, size: character.size)
-        self.addChild(character)
+        Snowman.physicsBody = SKPhysicsBody(texture: Snowman.texture!, alphaThreshold: 0.5, size: Snowman.size)
+        Snowman.zPosition = 2
+        self.addChild(Snowman)
                 // Create [SKTexture] array
                 var throwSnowBallTextures: [SKTexture] = []
                 throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_01"))
@@ -90,7 +120,7 @@ class GameScene: SKScene {
                 let throwSnowBallRepeatedly = SKAction.repeatForever(actionThrowSnowBallThenWait)
 
                 // Cause the character to throw the snowball
-                character.run(throwSnowBallRepeatedly)
+                Snowman.run(throwSnowBallRepeatedly)
         
     }
     
