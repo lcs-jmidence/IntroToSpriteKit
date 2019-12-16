@@ -37,8 +37,8 @@ class GameScene: SKScene {
         //        }
         
         
-        // Define a 12 second wait
-        let longWait = SKAction.wait(forDuration: 12)
+        // Define a 13.3 second wait
+        let longWait = SKAction.wait(forDuration: 13.1)
         let showEndCredits = SKAction.run(removeEverythingThenShowEndCredits)
         let waitThenShowCredits = SKAction.sequence([longWait, showEndCredits])
         self.run(waitThenShowCredits)
@@ -60,7 +60,7 @@ class GameScene: SKScene {
         
         // Show "Use" after 3 seconds
         let showTheWord = SKAction.run {
-            self.show(what: "The", at: 250)
+            self.show(what: "The", at: 300)
         }
         
         // Sequence to show that word after 6 seconds
@@ -72,7 +72,7 @@ class GameScene: SKScene {
         
         // Show "Force" after 9 seconds
         let showForceWord = SKAction.run {
-            self.show(what: "Force", at: 350)
+            self.show(what: "Force!", at: 500)
         }
         
         // Sequence to show that word after 9 seconds
@@ -241,7 +241,7 @@ class GameScene: SKScene {
         
         // Show text
         let word = SKLabelNode(fontNamed: "Herculanum")
-        word.fontSize = 36
+        word.fontSize = 52
         word.fontColor = .yellow
         word.text = text
         word.zPosition = 5
