@@ -36,6 +36,25 @@ class GameScene: SKScene {
         //            // Do nothing if the sound file could not be played
         //        }
         
+        
+        // Define a 12 second wait
+        let longWait = SKAction.wait(forDuration: 12)
+        let showEndCredits = SKAction.run(removeEverythingThenShowEndCredits)
+        let waitThenShowCredits = SKAction.sequence([longWait, showEndCredits])
+        self.run(waitThenShowCredits)
+        
+        // Define an action that causes a node to wait for 3 seconds
+        let actionThreeSecondWait = SKAction.wait(forDuration: 3.0)
+        
+        // Show "Use" after 3 seconds
+        let showUseWord = SKAction.run {
+            self.show(what: "Use", at: 400)
+        }
+        
+        // Sequence to show that word after 3 seconds
+        let waitThenShowUse = SKAction.sequence([actionThreeSecondWait, showUseWord])
+        self.run(waitThenShowUse)
+
         // Add background with specific image and center it
         let winterBackground = SKSpriteNode(imageNamed: "winterBackground")
         winterBackground.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
@@ -145,8 +164,6 @@ class GameScene: SKScene {
         self.addChild(circle1)
         circle1.physicsBody?.mass = 6.3
         // Define actions for the circle
-        // Define an action that causes a node to wait
-        let actionThreeSecondWait = SKAction.wait(forDuration: 3.0)
 
         // Define a vector that moves it to the right
         let rightThisMuch = CGVector(dx: 250, dy: 0)
@@ -159,38 +176,54 @@ class GameScene: SKScene {
         let actionRepeatWaitThenJump = SKAction.repeatForever(actionShortWaitThenMoveRight)
         circle1.run(actionRepeatWaitThenJump)
         
-        // Remove everything and show end credits
-        func removeEverythingThenShowEndCredits() {
-            
-            // Remove all existing children nodes
-            self.removeAllChildren()
-            
-            // Change background to black
-            self.backgroundColor = .black
-            
-            // Add end credits
-            
-            // By...
-            let by = SKLabelNode(fontNamed: "Helvetica Neue")
-            by.fontSize = 48
-            by.fontColor = .white
-            by.text = "Brought to you by Julio Midence"
-            by.zPosition = 3
-            by.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 + 50)
-            self.addChild(by)
-            
-            // And...
-            let and = SKLabelNode(fontNamed: "Helvetica Neue")
-            and.fontSize = 36
-            and.fontColor = .white
-            and.text = "and the Grade 12 Computer Science class"
-            and.zPosition = 3
-            and.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 - 50)
-            self.addChild(and)
-            
-        }
+        
         
 
+    }
+    
+    // Remove everything and show end credits
+    func removeEverythingThenShowEndCredits() {
+        
+        // Remove all existing children nodes
+        self.removeAllChildren()
+        
+        // Change background to black
+        self.backgroundColor = .black
+        
+        // Add end credits
+        
+        // By...
+        let by = SKLabelNode(fontNamed: "Helvetica Neue")
+        by.fontSize = 48
+        by.fontColor = .white
+        by.text = "Brought to you by Julio Midence"
+        by.zPosition = 3
+        by.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 + 50)
+        self.addChild(by)
+        
+        // And...
+        let and = SKLabelNode(fontNamed: "Helvetica Neue")
+        and.fontSize = 36
+        and.fontColor = .white
+        and.text = "and the Grade 12 Computer Science class"
+        and.zPosition = 3
+        and.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 - 50)
+        self.addChild(and)
+        
+    }
+    
+    // Show a word
+    func show(what text: String, at y: CGFloat) {
+        
+        // Show text
+        let word = SKLabelNode(fontNamed: "Herculanum")
+        word.fontSize = 36
+        word.fontColor = .yellow
+        word.text = text
+        word.zPosition = 5
+        word.position = CGPoint(x: 150, y: y)
+        self.addChild(word)
+        
     }
     
     // This runs before each frame is rendered 
