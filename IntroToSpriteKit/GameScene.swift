@@ -78,7 +78,7 @@ class GameScene: SKScene {
                 throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
 
                 // Create an action to animate throwing a snowball
-                let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 0.2, resize: true, restore: true)
+        let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 1.2, resize: true, restore: true)
 
                 // Wait a bit
                 let actionWaitASecond = SKAction.wait(forDuration: 1)
