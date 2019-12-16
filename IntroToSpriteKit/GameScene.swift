@@ -43,8 +43,8 @@ class GameScene: SKScene {
         let waitThenShowCredits = SKAction.sequence([longWait, showEndCredits])
         self.run(waitThenShowCredits)
         
-        // Define an action that causes a node to wait for 3 seconds
-        let actionThreeSecondWait = SKAction.wait(forDuration: 3.0)
+        // Define an action that causes a node to wait for 2.4 seconds
+        let actionThreeSecondWait = SKAction.wait(forDuration: 2.4)
         
         // Show "Use" after 3 seconds
         let showUseWord = SKAction.run {
@@ -75,7 +75,7 @@ class GameScene: SKScene {
             self.show(what: "Force", at: 350)
         }
         
-        // Sequence to show that word after 6 seconds
+        // Sequence to show that word after 9 seconds
         let waitThenShowForce = SKAction.sequence([actionNineSecondWait, showForceWord])
         self.run(waitThenShowForce)
         
@@ -137,7 +137,7 @@ class GameScene: SKScene {
                     }
                     
                 }
-                crate.physicsBody?.mass = 10
+                crate.physicsBody?.mass = 8.6
             }
         }
         
@@ -167,7 +167,7 @@ class GameScene: SKScene {
         throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
         
         // Create an action to animate throwing a snowball
-        let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 1.0, resize: true, restore: true)
+        let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 0.8, resize: true, restore: true)
         
         // Wait a bit
         let actionWaitASecond = SKAction.wait(forDuration: 1)
