@@ -71,26 +71,26 @@ class GameScene: SKScene {
         // Create physics body
         character.physicsBody = SKPhysicsBody(texture: character.texture!, alphaThreshold: 0.5, size: character.size)
         self.addChild(character)
-//                // Create [SKTexture] array
-//                var throwSnowBallTextures: [SKTexture] = []     // Empty array
-//                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_01"))
-//                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_02"))
-//                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
-//
-//                // Create an action to animate throwing a fireball
-//                let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 0.2, resize: true, restore: true)
-//
-//                // Wait a bit
-//                let actionWaitASecond = SKAction.wait(forDuration: 1)
-//
-//                // Make a sequence – throw fireball, then wait
-//                let actionThrowSnowBallThenWait = SKAction.sequence([throwSnowballAnimation, actionWaitASecond])
-//
-//                // Repeat the sequence
-//                let throwSnowBallRepeatedly = SKAction.repeatForever(actionThrowSnowBallThenWait)
-//
-//                // Cause the character to throw the fireball
-//                character.run(throwSnowBallRepeatedly)
+                // Create [SKTexture] array
+                var throwSnowBallTextures: [SKTexture] = []
+                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_01"))
+                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_02"))
+                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
+
+                // Create an action to animate throwing a snowball
+                let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 0.2, resize: true, restore: true)
+
+                // Wait a bit
+                let actionWaitASecond = SKAction.wait(forDuration: 1)
+
+                // Make a sequence – throw snowball, then wait
+                let actionThrowSnowBallThenWait = SKAction.sequence([throwSnowballAnimation, actionWaitASecond])
+
+                // Repeat the sequence
+                let throwSnowBallRepeatedly = SKAction.repeatForever(actionThrowSnowBallThenWait)
+
+                // Cause the character to throw the snowball
+                character.run(throwSnowBallRepeatedly)
         
     }
     
