@@ -48,11 +48,13 @@ class GameScene: SKScene {
             self.addChild(winterTile)
         }
         
-        // Add wall of winter tiles
-        for i in 1...5 {
-            let winterTile = SKSpriteNode(imageNamed: "winterTile")
-            winterTile.position = CGPoint(x: 100 * i, y: 100 * i + 25)
-            self.addChild(winterTile)
+        // Add wall of crates
+        for y in 1...5{
+        for x in 1...5 {
+            let crate = SKSpriteNode(imageNamed: "crate")
+            crate.position = CGPoint(x: 100 * x, y: 100 * y + 25)
+            self.addChild(crate)
+        }
         }
 
     }
