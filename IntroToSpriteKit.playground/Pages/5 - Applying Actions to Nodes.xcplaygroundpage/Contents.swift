@@ -176,26 +176,17 @@ circle3.run(waitAndThenRepeatedlyFadeOutAndIn)
  */
 
 // Exercise 1: Write your code below.
-let actionTwentySecondWait = SKAction.wait(forDuration: 20.0)
-let right&UpThisMuch = CGVector(dx: -150, dy: 50)
-let actionRightMovement = SKAction.move(by: rightThisMuch, duration: 5)
-circle1.run(actionRightMovement)
 
 // Define a sequence that involves a:
 // * twenty second wait
 // * move up & left
-let actionShortWaitThenMoveRight = SKAction.sequence([actionTwentySecondWait, actionRightMovement])
 
 // Exercise 2: Write your code below.
-let actionTwentySecondWait = SKAction.wait(forDuration: 20.0)
-let rightThisMuch = CGVector(dx: 150, dy: 0)
-let actionRightMovement = SKAction.move(by: rightThisMuch, duration: 5)
-circle1.run(actionRightMovement)
 
 // Define a sequence that involves a:
 // * twenty second wait
 // * move right
-let actionShortWaitThenMoveRight = SKAction.sequence([actionTwentySecondWait, actionRightMovement])
+
 
 // Exercise 3: Write your code below.
 

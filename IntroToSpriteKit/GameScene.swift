@@ -55,28 +55,46 @@ class GameScene: SKScene {
         
         // Create a label saying "Feliz Navidad" behind the wall of crates
         let title = SKLabelNode(fontNamed: "Herculanum")
-        title.fontSize = 64
+        title.fontSize = 96
         title.fontColor = NSColor(calibratedRed: 34/255, green: 192/255, blue: 32/255, alpha: 1)
         title.zPosition = 2
         title.text = "Feliz"
-        title.position = CGPoint(x: self.size.width - 400, y: self.size.height - 450)
+        title.position = CGPoint(x: self.size.width - 280, y: self.size.height - 500)
         self.addChild(title)
         // Add Navidad
         let title1 = SKLabelNode(fontNamed: "Herculanum")
-        title1.fontSize = 64
+        title1.fontSize = 96
         title1.fontColor = .red
         title1.zPosition = 2
         title1.text = "Navidad"
-        title1.position = CGPoint(x: self.size.width - 160, y: self.size.height - 450)
+        title1.position = CGPoint(x: self.size.width - 280, y: self.size.height - 600)
         self.addChild(title1)
         
         // Add wall of crates
-        for y in 1...5{
+        for y in 1...4{
             for x in 1...5 {
                 let crate = SKSpriteNode(imageNamed: "crate")
+                crate.name = "one of the crates"
                 crate.position = CGPoint(x: 100 * x + 650, y: 100 * y + 15)
                 crate.zPosition = 3
                 self.addChild(crate)
+                // Add a physics body for all nodes with identifier "one of the crates"
+                for node in self.children {
+
+                    // Only look at nodes of type SKSpriteNode
+                    if let thisNode = node as? SKSpriteNode {
+
+                        // Only the crates
+                        if thisNode.name == "one of the crates" {
+
+                            // Add a physics body
+                            thisNode.physicsBody = SKPhysicsBody(rectangleOf: thisNode.size)
+                        }
+
+                    }
+
+                }
+                crate.physicsBody?.mass = 10
             }
         }
         
@@ -97,9 +115,7 @@ class GameScene: SKScene {
         Snowman.run(actionScaleUp)
         // Position at bottom left
         Snowman.position = CGPoint(x: 100, y: 145)
-        // Create physics body
-        Snowman.physicsBody = SKPhysicsBody(texture: Snowman.texture!, alphaThreshold: 0.5, size: Snowman.size)
-        Snowman.zPosition = 2
+        Snowman.zPosition = 5
         self.addChild(Snowman)
                 // Create [SKTexture] array
                 var throwSnowBallTextures: [SKTexture] = []
@@ -108,7 +124,7 @@ class GameScene: SKScene {
                 throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
 
                 // Create an action to animate throwing a snowball
-        let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 1.2, resize: true, restore: true)
+        let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 1.0, resize: true, restore: true)
 
                 // Wait a bit
                 let actionWaitASecond = SKAction.wait(forDuration: 1)
@@ -122,6 +138,59 @@ class GameScene: SKScene {
                 // Cause the character to throw the snowball
                 Snowman.run(throwSnowBallRepeatedly)
         
+        // Add a circle "projectile"
+        let circle1 = SKSpriteNode(imageNamed: "circle")
+        circle1.position = CGPoint(x: 450, y: 200)
+        circle1.physicsBody = SKPhysicsBody(circleOfRadius: circle1.size.width * 0.5)
+        self.addChild(circle1)
+        circle1.physicsBody?.mass = 6.3
+        // Define actions for the circle
+        // Define an action that causes a node to wait
+        let actionThreeSecondWait = SKAction.wait(forDuration: 3.0)
+
+        // Define a vector that moves it to the right
+        let rightThisMuch = CGVector(dx: 250, dy: 0)
+
+        // Define an action that causes it to move sideways for half a second
+        let actionSidewaysMovement = SKAction.move(by: rightThisMuch, duration: 0.5)
+        
+        let actionShortWaitThenMoveRight = SKAction.sequence([actionThreeSecondWait, actionSidewaysMovement])
+        
+        let actionRepeatWaitThenJump = SKAction.repeatForever(actionShortWaitThenMoveRight)
+        circle1.run(actionRepeatWaitThenJump)
+        
+        // Remove everything and show end credits
+        func removeEverythingThenShowEndCredits() {
+            
+            // Remove all existing children nodes
+            self.removeAllChildren()
+            
+            // Change background to black
+            self.backgroundColor = .black
+            
+            // Add end credits
+            
+            // By...
+            let by = SKLabelNode(fontNamed: "Helvetica Neue")
+            by.fontSize = 48
+            by.fontColor = .white
+            by.text = "Brought to you by Julio Midence"
+            by.zPosition = 3
+            by.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 + 50)
+            self.addChild(by)
+            
+            // And...
+            let and = SKLabelNode(fontNamed: "Helvetica Neue")
+            and.fontSize = 36
+            and.fontColor = .white
+            and.text = "and the Grade 12 Computer Science class"
+            and.zPosition = 3
+            and.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2 - 50)
+            self.addChild(and)
+            
+        }
+        
+
     }
     
     // This runs before each frame is rendered 
