@@ -65,13 +65,13 @@
 			children = (
 				81279436239BEC4C000EBED0 /* AppDelegate.swift */,
 				8127943C239BEC4C000EBED0 /* GameScene.swift */,
-				D3AFCF3A23A732D0009F9639 /* Snow.sks */,
 				8127943E239BEC4C000EBED0 /* ViewController.swift */,
 				81279440239BEC4D000EBED0 /* Assets.xcassets */,
 				81279442239BEC4D000EBED0 /* Main.storyboard */,
 				81279445239BEC4D000EBED0 /* Info.plist */,
 				81279446239BEC4D000EBED0 /* IntroToSpriteKit.entitlements */,
 				0E0C826423A16E0600DC5990 /* sleigh-bells-excerpt.mp3 */,
+				D3AFCF3A23A732D0009F9639 /* Snow.sks */,
 				0EF3302923A0433100A83858 /* Fire.sks */,
 			);
 			path = IntroToSpriteKit;

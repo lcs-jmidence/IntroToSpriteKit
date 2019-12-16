@@ -55,19 +55,19 @@ class GameScene: SKScene {
         
         // Create a label saying "Feliz Navidad" behind the wall of crates
         let title = SKLabelNode(fontNamed: "Herculanum")
-        title.fontSize = 36
+        title.fontSize = 64
         title.fontColor = NSColor(calibratedRed: 34/255, green: 192/255, blue: 32/255, alpha: 1)
         title.zPosition = 2
         title.text = "Feliz"
-        title.position = CGPoint(x: self.size.width - 400, y: self.size.height - 50)
+        title.position = CGPoint(x: self.size.width - 400, y: self.size.height - 450)
         self.addChild(title)
         // Add Navidad
         let title1 = SKLabelNode(fontNamed: "Herculanum")
-        title1.fontSize = 36
+        title1.fontSize = 64
         title1.fontColor = .red
         title1.zPosition = 2
         title1.text = "Navidad"
-        title1.position = CGPoint(x: self.size.width - 100, y: self.size.height - 50)
+        title1.position = CGPoint(x: self.size.width - 160, y: self.size.height - 450)
         self.addChild(title1)
         
         // Add wall of crates
