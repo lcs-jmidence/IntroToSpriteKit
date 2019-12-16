@@ -52,7 +52,7 @@ class GameScene: SKScene {
         for y in 1...5{
         for x in 1...5 {
             let crate = SKSpriteNode(imageNamed: "crate")
-            crate.position = CGPoint(x: 100 * x, y: 100 * y + 25)
+            crate.position = CGPoint(x: 100 * x + 650, y: 100 * y + 15)
             self.addChild(crate)
         }
         }
