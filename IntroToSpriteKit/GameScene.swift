@@ -48,13 +48,37 @@ class GameScene: SKScene {
         
         // Show "Use" after 3 seconds
         let showUseWord = SKAction.run {
-            self.show(what: "Use", at: 400)
+            self.show(what: "Use", at: 150)
         }
         
         // Sequence to show that word after 3 seconds
         let waitThenShowUse = SKAction.sequence([actionThreeSecondWait, showUseWord])
         self.run(waitThenShowUse)
-
+        
+        // Define an action that causes a node to wait for 6 seconds
+        let actionSixSecondWait = SKAction.wait(forDuration: 6.0)
+        
+        // Show "Use" after 3 seconds
+        let showTheWord = SKAction.run {
+            self.show(what: "The", at: 250)
+        }
+        
+        // Sequence to show that word after 6 seconds
+        let waitThenShowThe = SKAction.sequence([actionSixSecondWait, showTheWord])
+        self.run(waitThenShowThe)
+        
+        // Define an action that causes a node to wait for 9 seconds
+        let actionNineSecondWait = SKAction.wait(forDuration: 9.0)
+        
+        // Show "Force" after 9 seconds
+        let showForceWord = SKAction.run {
+            self.show(what: "Force", at: 350)
+        }
+        
+        // Sequence to show that word after 6 seconds
+        let waitThenShowForce = SKAction.sequence([actionNineSecondWait, showForceWord])
+        self.run(waitThenShowForce)
+        
         // Add background with specific image and center it
         let winterBackground = SKSpriteNode(imageNamed: "winterBackground")
         winterBackground.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
@@ -66,8 +90,8 @@ class GameScene: SKScene {
             winterTile.position = CGPoint(x: 100 * v, y: 0)
             self.addChild(winterTile)
             winterTile.physicsBody = SKPhysicsBody(texture: winterTile.texture!,
-                                             alphaThreshold: 0.5,
-                                             size: winterTile.size)
+                                                   alphaThreshold: 0.5,
+                                                   size: winterTile.size)
             winterTile.physicsBody?.isDynamic = false
             winterTile.zPosition = 1
         }
@@ -99,19 +123,19 @@ class GameScene: SKScene {
                 self.addChild(crate)
                 // Add a physics body for all nodes with identifier "one of the crates"
                 for node in self.children {
-
+                    
                     // Only look at nodes of type SKSpriteNode
                     if let thisNode = node as? SKSpriteNode {
-
+                        
                         // Only the crates
                         if thisNode.name == "one of the crates" {
-
+                            
                             // Add a physics body
                             thisNode.physicsBody = SKPhysicsBody(rectangleOf: thisNode.size)
                         }
-
+                        
                     }
-
+                    
                 }
                 crate.physicsBody?.mass = 10
             }
@@ -119,7 +143,7 @@ class GameScene: SKScene {
         
         // Make it Snow
         if let snowing = SKEmitterNode(fileNamed: "Snow") {
-
+            
             // Position the snow (node)
             snowing.position = CGPoint(x: self.size.width / 2, y: self.size.height)
             snowing.zPosition = 0
@@ -136,26 +160,26 @@ class GameScene: SKScene {
         Snowman.position = CGPoint(x: 100, y: 145)
         Snowman.zPosition = 5
         self.addChild(Snowman)
-                // Create [SKTexture] array
-                var throwSnowBallTextures: [SKTexture] = []
-                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_01"))
-                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_02"))
-                throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
-
-                // Create an action to animate throwing a snowball
+        // Create [SKTexture] array
+        var throwSnowBallTextures: [SKTexture] = []
+        throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_01"))
+        throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_02"))
+        throwSnowBallTextures.append(SKTexture(imageNamed: "Snowman_03"))
+        
+        // Create an action to animate throwing a snowball
         let throwSnowballAnimation = SKAction.animate(with: throwSnowBallTextures, timePerFrame: 1.0, resize: true, restore: true)
-
-                // Wait a bit
-                let actionWaitASecond = SKAction.wait(forDuration: 1)
-
-                // Make a sequence – throw snowball, then wait
-                let actionThrowSnowBallThenWait = SKAction.sequence([throwSnowballAnimation, actionWaitASecond])
-
-                // Repeat the sequence
-                let throwSnowBallRepeatedly = SKAction.repeatForever(actionThrowSnowBallThenWait)
-
-                // Cause the character to throw the snowball
-                Snowman.run(throwSnowBallRepeatedly)
+        
+        // Wait a bit
+        let actionWaitASecond = SKAction.wait(forDuration: 1)
+        
+        // Make a sequence – throw snowball, then wait
+        let actionThrowSnowBallThenWait = SKAction.sequence([throwSnowballAnimation, actionWaitASecond])
+        
+        // Repeat the sequence
+        let throwSnowBallRepeatedly = SKAction.repeatForever(actionThrowSnowBallThenWait)
+        
+        // Cause the character to throw the snowball
+        Snowman.run(throwSnowBallRepeatedly)
         
         // Add a circle "projectile"
         let circle1 = SKSpriteNode(imageNamed: "circle")
@@ -164,10 +188,10 @@ class GameScene: SKScene {
         self.addChild(circle1)
         circle1.physicsBody?.mass = 6.3
         // Define actions for the circle
-
+        
         // Define a vector that moves it to the right
         let rightThisMuch = CGVector(dx: 250, dy: 0)
-
+        
         // Define an action that causes it to move sideways for half a second
         let actionSidewaysMovement = SKAction.move(by: rightThisMuch, duration: 0.5)
         
@@ -178,7 +202,7 @@ class GameScene: SKScene {
         
         
         
-
+        
     }
     
     // Remove everything and show end credits
@@ -213,7 +237,7 @@ class GameScene: SKScene {
     }
     
     // Show a word
-    func show(what text: String, at y: CGFloat) {
+    func show(what text: String, at x: CGFloat) {
         
         // Show text
         let word = SKLabelNode(fontNamed: "Herculanum")
@@ -221,7 +245,7 @@ class GameScene: SKScene {
         word.fontColor = .yellow
         word.text = text
         word.zPosition = 5
-        word.position = CGPoint(x: 150, y: y)
+        word.position = CGPoint(x: x, y: 350)
         self.addChild(word)
         
     }
